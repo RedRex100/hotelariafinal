@@ -1,0 +1,21 @@
+.corpo {
+  padding: 2rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+.rodape {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.rodape a {
+  color: #1389e9;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.rodape a:hover {
+  color: #0b7aa3;
+}

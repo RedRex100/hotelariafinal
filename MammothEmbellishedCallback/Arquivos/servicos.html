@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+    <script src="{{ url_for('static', filename='js/servicos.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Selecionar Serviços</h1>
+    </header>
+    <main>
+        <form id="servicosForm" onsubmit="enviarServicos(event)">
+            <div class="servico">
+                <label>
+                    <input type="checkbox" id="cafe-da-manha-sim"> Café da Manhã (R$ 100)
+                </label>
+            </div>
+            <div class="servico">
+                <label>
+                    <input type="checkbox" id="servico-de-quarto-sim"> Serviço de Quarto (R$ 150)
+                </label>
+            </div>
+            <div class="servico">
+                <label>
+                    <input type="checkbox" id="lavanderia-sim"> Lavanderia (R$ 50)
+                </label>
+            </div>
+            <div class="servico">
+                <label>
+                    <input type="checkbox" id="almoco-sim"> Almoço (R$ 100)
+                </label>
+            </div>
+            <div class="servico">
+                <label>
+                    <input type="checkbox" id="janta-sim"> Janta (R$ 100)
+                </label>
+            </div>
+            <button type="submit">Enviar Serviços</button>
+        </form>
+        <p id="mensagem"></p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </main>
+    <footer class="rodape">
+        <a href="/">Voltar para a página inicial</a>
+    </footer>
+</body>
+</html>

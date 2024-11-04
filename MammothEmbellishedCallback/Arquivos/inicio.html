@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+    <title>Hotel Encantado</title>
+</head>
+<body>
+    <header class="cabeca">
+        <h1>Hotel Encantado</h1>
+        <nav>
+            <p>
+                <a href="cadastrar">Cadastrar</a>
+                <a href="login">Login</a>
+                <a href="logout">Logout</a>
+            </p>
+        </nav>
+    </header>
+    
+    <main class="corpo">
+        <h1>Bem-vindo ao Hotel Encantado</h1>
+        <nav>
+            <ul>
+                <li><a href="reservas">Reservar</a></li>
+                <li><a href="frigobar">Frigobar</a></li>
+                <li><a href="servicos">Serviços</a></li>
+                <li><a href="pagamentos">Quitar as dívidas</a></li>
+                <li><a href="registros">Minhas Reservas</a></li>
+                <li><a href="checkout">Checkout</a></li>
+            </ul>
+        </nav>
+        
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if message in ['Você já está logado!', 'Você não está logado!', 'Você não é adm!', 'Você não quitou suas dívidas!'] %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

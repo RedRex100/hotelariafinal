@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+    <script src="{{ url_for('static', filename='js/frigobar.js') }}" defer></script>
+    <title>Frigobar</title>
+</head>
+<body>
+    <header>
+        <h1>Consumo</h1>
+    </header>
+    <main>
+        <section class="consumo">
+            <form id="servicosForm" onsubmit="enviarConsumo()">
+                <div class="item-consumo">
+                    <label for="cerveja">Cerveja (R$ 9,00):</label>
+                    <input type="number" id="cerveja" name="cerveja" min="0" value="0">
+                </div>
+                <div class="item-consumo">
+                    <label for="suco">Suco (R$ 8,00):</label>
+                    <input type="number" id="suco" name="suco" min="0" value="0">
+                </div>
+                <div class="item-consumo">
+                    <label for="agua">Água (R$ 5,00):</label>
+                    <input type="number" id="agua" name="agua" min="0" value="0">
+                </div>
+                <div class="item-consumo">
+                    <label for="lanche-natural">Lanche Natural (R$ 10,00):</label>
+                    <input type="number" id="lanche-natural" name="lanche-natural" min="0" value="0">
+                </div>
+                <div class="item-consumo">
+                    <label for="barrinha-cereal">Barrinha de Cereal (R$ 3,50):</label>
+                    <input type="number" id="barrinha-cereal" name="barrinha-cereal" min="0" value="0">
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="mensagem"></p>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </section>
+    </main>
+    <footer class="rodape">
+        <a href="/">Voltar para a página inicial</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+    <script src="{{ url_for('static', filename='js/checkout.js') }}" defer></script>
+    <title>Checkout</title>
+</head>
+<body>
+    <header>
+        <h1>Escolha sua Reserva</h1>
+    </header>
+    <main>
+        <section class="corpo">
+            {% if reservas %}
+                <ul class="reservas-list">
+                    {% for reserva in reservas %}
+                        <li class="reserva-item">
+                            Quarto: {{ reserva.quarto }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Você não possui reservas.</p>
+            {% endif %}
+            <form id="checkoutarForm" onsubmit="checkout('{{ usuario.nome }}')">
+                <button type="submit">Realizar Checkout</button>
+            </form>
+        </section>
+    </main>
+    <footer class="rodape">
+        <a href="/">Voltar para a página inicial</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+    <title>Minhas Reservas</title>
+</head>
+<body>
+    <header>
+        <h1>Minhas Reservas</h1>
+    </header>
+    <main>
+        {% if reservas %}
+            <ul>
+                {% for reserva in reservas %}
+                    <li>
+                        Quarto: {{ reserva.quarto }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Você não possui reservas.</p>
+        {% endif %}
+    </main>
+    <footer class="rodape">
+        <a href="/">Voltar para a página inicial</a>
+    </footer>
+</body>
+</html>
